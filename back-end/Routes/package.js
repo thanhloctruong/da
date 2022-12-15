@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
 router.get("/:codepkg", async (req, res) => {
   try {
     const payload = req.params.codepkg;
-    const result = await PK.find({ idcontainer: payload });
+    const result = await PK.findById(payload);
     res.status(200).send({ data: result });
   } catch (error) {
     res.status(404).send({
